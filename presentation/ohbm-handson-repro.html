@@ -169,10 +169,13 @@
             </li>
         </ol>
     </section>
-    
+</section>
+
+
+<!-- HOUSE RULES -->
+<section>
     <section>
-        <h2>Overview</h2>
-        <h3>Practical aspects 1</h3>
+        <h2>Practical aspects</h2>
         <ul>
             <li class="fragment fade-in">
                 You can follow along without having any specific software or tools installed on your machine.
@@ -197,8 +200,7 @@
     </section>
     
     <section>
-        <h2>Overview</h2>
-        <h3>Practical aspects 2</h3>
+        <h2>Practical aspects</h2>
         <ul>
             <li class="fragment fade-in">
                 Hands-on!
@@ -224,14 +226,22 @@
         </ul>
     </section>
 
+    <section>
+        <h2>Practical aspects</h2>
+        <h3>Who are you?</h3>
+        <iframe src="https://directpoll.com/r?XDbzPBdJ2bAX0ZEC2YlWLumm6WtYBkChGSFh5Vwe4W"
+    title="This is my poll", width="900", height="900"></iframe>
+    </section>
 
     <section>
-        <h2>Overview</h2>
+        <h2>Practical aspects</h2>
         <img src="pics/handson_allofthethings.jpeg">
     </section>
 </section>
 
 
+
+<!-- Step 1: share data and code -->
 <section>
     <section>
         <h2>Step 1: share data and code</h2>
@@ -240,7 +250,14 @@
         <br><br>
         <img src="pics/handson_email2.png">
 
+    </section>
+
+    <section>
+        <h2>Step 1: share data and code</h2>
+
+        Why don't we just send them the data and code "via" a download link?
         <br><br>
+        
         💻 Try it yourself:<br>
         <ul>
             <li><a href="https://filesender.surf.nl/?s=download&token=6ca14fed-12ee-44ce-acfb-7750b689d7f4">paper_data_and_code.zip</a></li>
@@ -265,21 +282,90 @@
                 The person might not have the correct software or package versions installed
             </li>
             <li class="fragment fade-in">
-                ...
+                They could perhaps figure out from the code which packages are required,
+                but installing them might interfere with their existing environment, which
+                might break things down the line.
             </li>
         </ul>
   
     </section>
 
+    <section>
+        <h2>Step 1: share data and code</h2>
+
+        So they tried running the script on their machine, and then...
+        <br><br>
+        <img src="pics/handson_email3.png">
+        <br>
+        💬 What went wrong? What should we have done?
+  
+    </section>
+
+    <section>
+        <h2>Step 1: share data and code</h2>
+
+        To prevent this issue (or similar issues), while still allowing others to run
+        the code on their machines, we need to share:
+        <br><br>
+
+        <table>
+            <tr>
+                <td>1.</td>
+                <td>The required packages</td>
+                <td><strong>requirements.txt</strong></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>The Python version</td>
+                <td><strong>virtual environment</strong></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Instructions for how to use these to successfully run the script</td>
+                <td><strong>README</strong></td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Data and code and all of the above in an accessible location</td>
+                <td><strong>GitHub</strong></td>
+            </tr>
+        </table>
+  
+    </section>
 
 </section>
 
+
+<!-- Step 2: software environment and package requirements -->
+<section>
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+        <pre>
+            <code>
+                conda create -n testenv python=3.6
+                conda activate testenv
+                
+                git clone https://github.com/ohbm/handson-2021-reproducible-workflows.git
+                cd handson-2021-reproducible-workflows
+                
+                pip install requirements.txt
+            </code>
+        </pre>
+        
+    </section>
+</section>
 
 
 </div> <!-- /.slides -->
 </div> <!-- /.reveal -->
 
 <script src="js/reveal.js"></script>
+
 
 <script>
   // Full list of configuration options available at:
