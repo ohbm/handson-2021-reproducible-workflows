@@ -6,7 +6,6 @@ import nibabel as nb
 import nibabel.freesurfer.mghformat as mgh
 from nibabel.freesurfer.io import read_geometry
 from nilearn.plotting.surf_plotting import load_surf_data
-import brainspace
 from brainstat.stats.terms import FixedEffect
 from brainstat.stats.SLM import SLM
 import myvis
@@ -20,7 +19,6 @@ df = pd.read_csv(dfname)
 
 idx = np.array(df["ID2"])
 age = np.array(df["AGE"])
-iq = np.array(df["IQ"])
 
 # 1. load thickness data 
 j = 0
@@ -81,7 +79,6 @@ fig02 = myvis.plot_surfstat(surf_mesh, bg_map, Mean_thickness,
 # 4. build the stats model
 term_intercept = FixedEffect(1, names="intercept")
 term_age = FixedEffect(age, "age")
-term_iq = FixedEffect(iq, "iq")
 model = term_intercept + term_age 
 
 slm = SLM(model, -age, surf=surf_mesh)
