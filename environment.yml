@@ -114,5 +114,5 @@ dependencies:
     - trimesh==3.9.20
     - urllib3==1.26.5
     - vtk==8.1.2
-prefix: /home/sheyma/anaconda3/envs/ohbm
+
 
