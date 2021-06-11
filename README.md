@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sheyma/ohbm_2021_fellow/HEAD)
+
 Wellcome to OHBM 2021 reproducible workflows session!
 
 Install the requirements using pip:

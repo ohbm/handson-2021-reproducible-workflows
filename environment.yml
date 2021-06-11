@@ -3,12 +3,13 @@ channels:
   - conda-forge
   - conda-forge/label/gcc7
 dependencies:
-  - numpy
-  - psutil
-  - toolz
-  - matplotlib
-  - dill
+  - numpy>=1.16.5
   - pandas
-  - partd
-  - bokeh
-  - dask
+  - nibabel
+  - nilearn>=0.7.1
+  - sklearn-contrib-lightning
+  - matplotlib==3.2.2
+  - vtk
+  - pip:
+    - brainspace
+
