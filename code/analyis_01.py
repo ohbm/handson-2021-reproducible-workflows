@@ -11,7 +11,8 @@ from brainstat.stats.terms import FixedEffect
 from brainstat.stats.SLM import SLM
 import myvis
 
-datadir = '../data'
+path_to_script = os.path.dirname(os.path.abspath(__file__))
+datadir = os.path.join(os.path.dirname(path_to_script), 'data')
 
 # 0. get data demographics through pandas
 dfname = os.path.join(datadir, 'thickness.csv')
