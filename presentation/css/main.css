@@ -1,6 +1,6 @@
 @import url("reveal.css");
 @import url("theme/beige.css");
-@import url("../lib/css/zenburn.css");
+@import url("../lib/css/monokai.css");
 
 
 .reveal .slides {
