@@ -1,12 +1,13 @@
 import os, glob
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import nibabel as nb
 import nibabel.freesurfer.mghformat as mgh
-from nilearn.plotting.surf_plotting import load_surf_data
-from brainstat.stats.terms import FixedEffect
 from nibabel.freesurfer.io import read_geometry
+from nilearn.plotting.surf_plotting import load_surf_data
+import brainspace
+from brainstat.stats.terms import FixedEffect
 from brainstat.stats.SLM import SLM
 import myvis
 
