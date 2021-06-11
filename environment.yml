@@ -97,7 +97,6 @@ dependencies:
   - pip:
     - abagen==0.1.1
     - brainspace==0.1.1
-    - brainstat==0.0.3
     - chardet==4.0.0
     - idna==2.10
     - neurosynth==0.3.8
