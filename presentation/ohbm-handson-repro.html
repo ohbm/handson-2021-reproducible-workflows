@@ -211,7 +211,7 @@
                     <li>The eyes icon (👀) means we'll demonstrate something</li>
                     <li>The speech bubble icon (💬 ) indicates time for discussion/opinions</li>
                     <li>Feel free to ask questions at any time (via chat, voice, or video)</li>
-                    <li>Live polls, please participate!</li>
+        bbl            <li>Live polls, please participate!</li>
                 </ul>
             </li>
             <li class="fragment fade-in">
@@ -502,10 +502,69 @@
     <section>
         <h2>Step 2: software environment and requirements</h2>
 
+        After sending the news about the public GitHub repo with out colleague, we get the following reply:
+        <br><br>
+
+        <img src="pics/handson_email4.png" height="650">
+
+        <br><br>
+        
+        Now we'll focus on requirements and virtual environments
+        
+
     </section>
 
     <section>
         <h2>Step 2: software environment and requirements</h2>
+
+        <h3>Requirements.txt</h3>
+
+        <ul>
+            <li>Single file to capture required Python packages</li>
+            <li>Makes installation straight-forward with <code>pip</code>:</li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    pip install -r requirements.txt
+                </code>
+            </pre>
+            <li>In the file, you can specify packages and versions:</li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    matplotlib==3.2.2
+                    numpy>=1.16.5
+                    pandas
+                    nibabel
+                    nilearn>=0.7.1
+                    sklearn
+                    brainspace
+                </code>
+            </pre>
+        </ul>
+
+        <br><br>
+
+        💻 Now, create your own <code>requirements.txt</code> file and add it to your GitHub repo 
+        (either in your browser or via <code>git</code>).
+
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        <h3>Virtual enviroments</h3>
+
+        <ul>
+            <li><code>requirements.txt</code> helps a lot, but what if the colleague already has some of these packages installed? 💬</li>
+            <li>Installing new packages or existing packages with different versions can interfere with their local Python setup, and cause errors.</li>
+            <li>It would be great if they could install our package requirements in a <strong>clean</strong> environment ==> virtual environments!</li>
+            <ul>
+                <li>Miniconda</li>
+                <li>virtualenv</li>
+            </ul>
+        </ul>
+        <br><br>
+        lorum ipsum
+        <br><br>
         <pre>
             <code>
                 #!/bin/bash
