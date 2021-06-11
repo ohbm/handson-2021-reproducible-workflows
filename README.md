@@ -1,5 +1,11 @@
 Wellcome to OHBM 2021 reproducible workflows session!
 
+Install the requirements using pip:
+
+```
+pip3 install -r requirements.txt
+```
+
 Additional requirement for the code: Please clone [BrainStat](https://github.com/MICA-MNI/BrainStat).
 
 ```
