@@ -1,7 +1,5 @@
-# handson-2021-reproducible-workflows
-Content for the OHBM Hackathon 2021 hands-on session: Reproducible Workflows
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sheyma/ohbm_2021_fellow/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ohbm/handson-2021-reproducible-workflows/HEAD)
 
 Wellcome to OHBM 2021 reproducible workflows session!
 
@@ -23,4 +21,4 @@ We have cloned the data from [MICA-MNI](https://github.com/MICA-MNI/micaopen/tre
 
 We want to produce this results from the awesome publication:
 
-![alt text](https://github.com/sheyma/ohbm_2021_fellow/blob/master/figure.png)
+![alt text](https://github.com/ohbm/handson-2021-reproducible-workflows/blob/main/figure.png)
