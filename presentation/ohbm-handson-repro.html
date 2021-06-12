@@ -609,10 +609,6 @@
                 </td>
             </tr>
         </table>
-
-        
-
-        
         
     </section>
 
@@ -633,7 +629,7 @@
                     pip install virtualenv #install the package
                     virtualenv --python=python3 mypythonenv #create a new virtual environment
                     source mypythonenv/bin/activate #activate the virtual environment
-                    # now do install your packages with pip and do the analysis
+                    # now install your packages with pip and do the analysis
                     deactivate #deactivate the virtual environment
                 </code>
             </pre>
@@ -644,7 +640,7 @@
                     # install miniconda using install files via link
                     conda create -n mypythonenv python=3.6
                     conda activate mypythonenv
-                    # now do install your packages with conda and/or pip and do the analysis
+                    # now install your packages with conda and/or pip and do the analysis
                     conda deactivate #deactivate the virtual environment
                 </code>
             </pre>
@@ -656,35 +652,130 @@
     <section>
         <h2>Step 2: software environment and requirements</h2>
 
-        <h3>Introducing Virtual enviroments</h3>
+        <h3>Introducing Virtual Enviroments</h3>
 
+        <div style="text-align:justify">
+            💻 So let's tell our colleague what to do next. Update your repo's README
+            to include instructions for setting up a virtual environment and installing
+            all required packages in this environment. Include:
+        </div>
+        <br>
         <ul>
-            <li><code>requirements.txt</code> helps a lot, but what if the colleague already has some of these packages installed? 💬</li>
-            <li>Installing new packages or existing packages with different versions can interfere with their local Python setup, and cause errors.</li>
-            <li>It would be great if they could install our package requirements in a <strong>clean</strong> environment ==> virtual environments!</li>
-            <ul>
-                <li>Miniconda</li>
-                <li>virtualenv</li>
-            </ul>
+            <li>An intro sentence to mention that a virtual environment can be used to run the code</li>
+            <li>Instructions on how to install the virtual environment manager</li>
+            <li>Instructions on how to create and activate the virtual environment</li>
+            <li>Instructions on how to install all packages using <code>requirements.txt</code></li>
+            <li>Lastly, instructions on how to run the analysis (if not already included)</li>
         </ul>
-        <br><br>
-        lorum ipsum
-        <br><br>
-        <pre>
-            <code>
-                #!/bin/bash
-
-                conda create -n testenv python=3.6
-                conda activate testenv
-                
-                git clone https://github.com/ohbm/handson-2021-reproducible-workflows.git
-                cd handson-2021-reproducible-workflows
-                
-                pip install requirements.txt
-            </code>
-        </pre>
         
     </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        Congrats! <br>You've achieved Level 2 of being a Reproducible Workflows Magician!
+
+        <br><br>
+        <table>
+            <tr>
+                <td>1.</td>
+                <td>The required packages</td>
+                <td><strong>requirements.txt</strong></td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>The Python version</td>
+                <td><strong>virtual environment</strong></td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Instructions for how to use these to successfully run the script</td>
+                <td><strong>README</strong></td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Data and code and all of the above in an accessible location</td>
+                <td><strong>GitHub</strong></td>
+                <td>✅</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        So we send the update to our colleague:
+
+        <br><br>
+
+        <img src="pics/handson_email5.png">
+        
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        Well done!!
+
+        <br><br>
+
+        <iframe src="https://gifer.com/embed/5RK" width=600 height=400 frameBorder="0" allowFullScreen></iframe>
+        
+    </section>
+
+    
+
+    <!-- <div class="tenor-gif-embed" data-postid="16652721" data-share-method="host" data-width="100%" data-aspect-ratio="0.9397590361445783"><a href="https://tenor.com/view/oh-yeah-cute-dance-you-got-this-gif-16652721">Oh Yeah Cute GIF</a> from <a href="https://tenor.com/search/ohyeah-gifs">Ohyeah GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
+
+    <!-- <iframe src="https://gifer.com/embed/2IC" width=480 height=269.760 frameBorder="0" allowFullScreen></iframe><p><a href="https://gifer.com">via GIFER</a></p> -->
+
+</section>
+
+
+<!-- Step 3: containers everywhere -->
+
+<section>
+
+    <section>
+        <h2>Step 3: containers everywhere</h2>
+
+        So you decide to chill out now that everything should be working, right? Unfortunately,
+        our feeling of accomplishment is short-lived, because Professor Important
+        Dude is back with another question..
+
+        <br><br>
+
+        <img src="pics/handson_email6.png">
+
+    </section>
+
+    <section>
+        <h2>Step 3: containers everywhere</h2>
+
+        And then you realise... many things. At the same time:
+
+        <br><br>
+        <ul>
+            <li>Damn, you forgot about the OpenGL/LibGL requirement</li>
+            <li>You really don't want to have another Zoom call in this pandemic</li>
+            <li>You absolutely don't want to have multiple Zoom calls forever</li>
+        </ul>
+        <br><br>
+        So you cry out in desperation: <strong>Why can't it just work on their machines?!</strong>
+    </section>
+
+    <section>
+        <h2>Step 3: containers everywhere</h2>
+
+        <img src="pics/handson_itworksonmymachine.jpeg" width="600">
+
+    </section>
+
+
+
 </section>
 
 
