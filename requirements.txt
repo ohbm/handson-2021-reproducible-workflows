@@ -1,0 +1,7 @@
+matplotlib==3.2.2
+numpy>=1.16.5
+pandas
+nibabel
+nilearn>=0.7.1
+sklearn
+brainspace
