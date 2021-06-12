@@ -373,6 +373,16 @@
             <li>Commit the changes to git</li>
             <li>Push the changes to GitHub</li>
         </ol>
+  
+    </section>
+
+    <section>
+        <h2>Step 1: share data and code</h2>
+
+        We'll start with adding our data and code to Github:
+        <br><br>
+        <h3>From the command line (💻)</h3>
+
         <pre>
             <code data-trim data-line-numbers>
                 #!/bin/bash
@@ -382,11 +392,11 @@
                 REPONAME=[insert-your-repo-name]
                 CONTENTDIR=[insert-path-to-paper_data_and_code-directory]
 
-                cd ROOTDIR
-                git clone REPOURL
-                cd REPONAME
+                cd $ROOTDIR
+                git clone $REPOURL
+                cd $REPONAME
                 
-                cp -R CONTENTDIR/* .
+                cp -R $CONTENTDIR/* .
                 git add --all
                 git commit -m "add data and code to repo"
                 git push origin main
@@ -426,16 +436,26 @@
         <h3>From the command line (💻)</h3>
 
         <ol>
-            <li>On your machine, open the <code>README.md</code> file in your favorite editor</li>
+            <li>Open the "README.md" file in your favourite text editor</li>
             <li>Write in your own words: the content of the repo and how to run the analysis</li>
             <ul>
                 <li>Editing is done in Markdown format (<a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">cheat sheet</a>)</li>
-                <li>You can "Preview" your changes while editing</li>
                 <li>If you don't want to use your own words, use the content from <a href="" target="_blank">our example</a></li>
             </ul>
-            <li>Commit the changes to git</li>
+            <li>Commit the changes to <code>git</code></li>
             <li>Push the changes to GitHub</li>
         </ol>
+  
+    </section>
+
+    <section>
+        <h2>Step 1: share data and code</h2>
+        
+        Next, we'll add instructions to the README:
+        <br><br>
+
+        <h3>From the command line (💻)</h3>
+
         <pre>
             <code data-trim data-line-numbers>
                 #!/bin/bash
@@ -452,16 +472,11 @@
 
     <section>
         <h2>Step 1: share data and code</h2>
-
-        OK, so now we have our data, code, and instructions all publicly shared in an accessible location.
-        <br><br>
-        But we haven't specified the software or package requirements and we haven't explained how to set
+        <p>
+        We have not yet specified the software or package requirements and we have not explained how to set
         up a virtual environment. We'll address these as our next main step in the hands-on session.
-        
-
-
-        <br><br>
-
+        </p>
+        <br>
         <table>
             <tr>
                 <td>1.</td>
@@ -488,7 +503,9 @@
                 <td>✅</td>
             </tr>
         </table>
+        
         <br>
+
 
         Well done on achieving your first milestone towards creating a reproducible workflow! 🥳🥳🥳
   
@@ -502,7 +519,7 @@
     <section>
         <h2>Step 2: software environment and requirements</h2>
 
-        After sending the news about the public GitHub repo with out colleague, we get the following reply:
+        After sharing the news about the public GitHub repo with our colleague, we get the following reply:
         <br><br>
 
         <img src="pics/handson_email4.png" height="650">
@@ -517,7 +534,7 @@
     <section>
         <h2>Step 2: software environment and requirements</h2>
 
-        <h3>Requirements.txt</h3>
+        <h3>Introducing requirements.txt</h3>
 
         <ul>
             <li>Single file to capture required Python packages</li>
@@ -527,7 +544,7 @@
                     pip install -r requirements.txt
                 </code>
             </pre>
-            <li>In the file, you can specify packages and versions:</li>
+            <li>In the file, you can specify the required packages (check script) and versions:</li>
             <pre>
                 <code data-trim data-line-numbers>
                     matplotlib==3.2.2
@@ -541,7 +558,7 @@
             </pre>
         </ul>
 
-        <br><br>
+        <br>
 
         💻 Now, create your own <code>requirements.txt</code> file and add it to your GitHub repo 
         (either in your browser or via <code>git</code>).
@@ -551,7 +568,95 @@
     <section>
         <h2>Step 2: software environment and requirements</h2>
 
-        <h3>Virtual enviroments</h3>
+        <h3>Introducing requirements.txt</h3>
+
+        <div style="text-align:justify">
+            NOTE: not all packages/tools required for an analysis are necessarily
+            Python packages, or if they are they might not be available on the
+            <a href="https://pypi.org/">Python Package Index (PyPI)</a>. This means
+            that installing everything with <code>pip</code> and a <code>requirements.txt</code>
+            file might not be sufficient:
+        </div>
+        <br>
+        <ul>
+            <li>Check whether some packages/tools might have to be installed differently:</li>
+            <ul>
+                <li><a href="https://wiki.debian.org/Apt">APT</a>: for managing packages (retrieval, configuration and installation) on Unix-like computer systems</li>
+                <li><a href="https://docs.conda.io/en/latest/">conda</a>: Package, dependency and environment management for any language running on Windows, macOS and Linux</li>
+            </ul>
+            <li>Add extra installation instructions to README</li>
+        </ul>
+
+        <br>
+
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        <h3>Introducing Virtual Enviroments</h3>
+
+        <table>
+            <tr>
+                <td style="width: 40%;">
+                    <ul>
+                        <li><code>requirements.txt</code> helps a lot, but what if the colleague already has some of these packages installed? 💬</li>
+                        <li>Installing new packages or existing packages with different versions can interfere with their local Python setup, and cause errors.</li>
+                    </ul>
+                </td>
+                <td>
+                    <img src="pics/handson_python_environment.png" width="600">
+                </td>
+            </tr>
+        </table>
+
+        
+
+        
+        
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        <h3>Introducing Virtual Enviroments</h3>
+
+        <div style="text-align:justify">
+            It would be great if colleagues could install our package requirements in a <strong>clean and isolated</strong> environment ==> virtual environments!
+        </div>
+        
+        <ul>
+            <li><a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a></li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    #!/bin/bash
+                    pip install virtualenv #install the package
+                    virtualenv --python=python3 mypythonenv #create a new virtual environment
+                    source mypythonenv/bin/activate #activate the virtual environment
+                    # now do install your packages with pip and do the analysis
+                    deactivate #deactivate the virtual environment
+                </code>
+            </pre>
+            <li><a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a></li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    #!/bin/bash
+                    # install miniconda using install files via link
+                    conda create -n mypythonenv python=3.6
+                    conda activate mypythonenv
+                    # now do install your packages with conda and/or pip and do the analysis
+                    conda deactivate #deactivate the virtual environment
+                </code>
+            </pre>
+        </ul>
+        
+    </section>
+
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
+
+        <h3>Introducing Virtual enviroments</h3>
 
         <ul>
             <li><code>requirements.txt</code> helps a lot, but what if the colleague already has some of these packages installed? 💬</li>
