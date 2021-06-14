@@ -51,7 +51,7 @@ One environment demonstrates the use of `requirements.txt` as the configuration 
 
 Another environment demonstrates the use of `environment.yml` as the configuration file for Binder. Access it here:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ohbm/handson-2021-reproducible-workflows/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ohbm/handson-2021-reproducible-workflows/conda-env)
 
 The latter environment builds from the [`conda-env` branch](https://github.com/ohbm/handson-2021-reproducible-workflows/tree/conda-env).
 
