@@ -26,7 +26,7 @@
   <div style="margin-top:1em;text-align:center">
   <table style="border: none;">
   <tr>
-	<td>Stephan Heunis
+	<td>Stephan Heunis ("Atlantis" slot)
 	  <br><small>
 		<a href="https://twitter.com/fMRwhy" target="_blank">
 		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
@@ -43,7 +43,7 @@
 	  <br></td>
   </tr>
   <tr>
-	<td>Şeyma Bayrak
+	<td>Şeyma Bayrak ("Rising Sun" slot)
 	  <br><small>
 		<a href="https://github.com/sheyma" target="_blank">
 		  <img data-src="pics/GitHub.png" style="height:30px;margin:0px" />
@@ -58,25 +58,35 @@
   </table>
   </div>
   <br>
-  <br>
-  <br>
   <div>
-      <a href=""><small>Slides</small></a>
+      <small>Slides:</small>
+      <br>
+      <a href="https://tinyurl.com/ohbm-2021-handson-repro"><small>https://tinyurl.com/ohbm-2021-handson-repro</small></a>
+      <br>
+      <a href=""><small></small></a>
+
   </div>
 </section>
 
 <!-- AGENDA -->
 <section>
     <h2>Agenda</h2>
+    
     <ul>
-        <li>Overview <em>(15 min)</em></li>
+        <li>Overview <em>(8 min)</em></li>
         <li>Practical aspects <em>(7 min)</em></li>
         <li>Step 1: share data and code <em>(30 min)</em></li>
-        <li>Step 2:  <em>(-- min)</em></li>
-        <li>Step 3 <em>(-- min)</em></li>
-        <li>Step 4 <em>(-- min)</em></li>
+        <li>Step 2: software environment and requirements <em>(30 min)</em></li>
+        <li><em>-- BREAK (30 min) --</em></li>
+        <li>Step 3: cloudy containers <em>(30 min)</em></li>
+        <li>Step 4: interplanetary sci-comm <em>(20 min)</em></li>
+        <li>Step 5: reproducible data management <em>(20 min)</em></li>
+        <li>More tools <em>(5 min)</em></li>
+        
 
     </ul>
+    <br><br>
+    <em>Total running time: 3 hours</em>
 
 </section>
 
@@ -178,24 +188,20 @@
     <section>
         <h2>Practical aspects</h2>
         <ul>
-            <li class="fragment fade-in">
+            <li>
                 You can follow along without having any specific software or tools installed on your machine.
             </li>
-            <li class="fragment fade-in">
+            <li>
                 You just need a good internet connection and your browser.
             </li>
-            <li class="fragment fade-in">
-                We use
-                        <a href="https://research.google.com/colaboratory/" target="_blank">
-                        <img data-src="pics/handson_colablogo.png" style="height:30px;margin:0px" />
-                        Google Colab</a> and
-                        <a href="https://mybinder.org/" target="_blank">
+            <li>
+                However, if you have the required software/packages installed locally, you are welcome (and encouraged) to run the tasks on your system (we'll provide instructions).
+            </li>
+            <li>
+                We use <a href="https://mybinder.org/" target="_blank">
                             <img data-src="pics/handson_binderlogo.png" style="height:30px;margin:0px" />
                             myBinder</a>
-                as cloud-based tools to demonstrate and run the tasks in the workshop.
-            </li>
-            <li class="fragment fade-in">
-                However, if you have the required software/packages installed locally, feel free to run the tasks on your system (we'll provide instructions).
+                as a cloud-based tool to demonstrate and run some of the tasks in the workshop, but we'll teach you all about it.
             </li>
         </ul>
     </section>
@@ -203,7 +209,7 @@
     <section>
         <h2>Practical aspects</h2>
         <ul>
-            <li class="fragment fade-in">
+            <li>
                 Hands-on!
                 <ul>
                     <li>You will be doing a lot of tasks yourself (together with all of us)</li>
@@ -211,20 +217,16 @@
                     <li>The eyes icon (👀) means we'll demonstrate something</li>
                     <li>The speech bubble icon (💬 ) indicates time for discussion/opinions</li>
                     <li>Feel free to ask questions at any time (via chat, voice, or video)</li>
-        bbl            <li>Live polls, please participate!</li>
+                    <li>Live polls, please participate!</li>
                 </ul>
             </li>
-            <li class="fragment fade-in">
+            <li>
                 Useful links:
                 <ul>
-                    <li>🔗 <a href="">GitHub repository, with data and code for analysis</a></li>
-                    <li>🔗 <a href="">Google Colab notebook</a></li>
-                    <li>🔗 <a href="">Data source</a></li>
-                    <li>🔗 <a href="">These slides</a></li>
+                    <li>🔗 <a href="https://github.com/ohbm/handson-2021-reproducible-workflows">GitHub repository, with data and code for analysis</a></li>
+                    <li>🔗 <a href="https://github.com/MICA-MNI/micaopen/tree/master/surfstat/surfstat_tutorial">Data source</a></li>
+                    <li>🔗 <a href="https://tinyurl.com/ohbm-2021-handson-repro">These slides</a></li>
                 </ul>
-            </li>
-            <li class="fragment fade-in">
-                
             </li>
         </ul>
     </section>
@@ -910,7 +912,7 @@
 
     <section>
         <h2>Step 3: cloudy containers</h2>
-        💻 <a href="https://mybinder.org/">mybinder.org</a>
+        💻👀 <a href="https://mybinder.org/">mybinder.org</a>
         <br>
         <img src="pics/handson_binderize.png" height="750">
 
@@ -971,7 +973,9 @@
 
         <br><br>
 
-        Secondly, let's take a deeper look into this <strong>notebook</strong> thing. And what's with <strong>Jupiter</strong>?
+        Secondly, let's take a deeper look into this <strong>notebook</strong> thing.
+        <br>
+        And what's with <strong>Jupiter</strong>?
         <br><br>
         <img src="pics/handson_jupiter.png" width="600">
         <imgcredit>NASA SpacePlace</imgcredit>
@@ -1029,14 +1033,14 @@
                 <li>Use Markdown cells for narrative content (as in the README)</li>
                 <li>Use code cells for Python code</li>
             </ul>
-            <li>Have a look at <a href="">this static example</a> for guidance</li>
+            <li>👀 Have a look at <a href="">this static example</a> for guidance</li>
         </ol>
         
     </section>
 
     <section>
         <h2>STEP 4: Interplanetary sci-comm</h2>
-        <h3>Show and tell!</h3>
+        <h3>Show and tell! 💻👀💬</h3>
         <img src="pics/handson_bindershow.png" width="600">
     </section>
 
@@ -1218,7 +1222,7 @@
         <dl>
             <dt>Read <a href="https://handbook.datalad.org"> the DataLad handbook</a></dt>
             <dd>An interactive, hands-on crash-course (free and open source)</dd>
-            <dt>Check out or used public DataLad datasets, e.g., from OpenNeuro</dt>
+            <dt>Check out or use public DataLad datasets, e.g., from OpenNeuro</dt>
             <dd>
                 <pre><code data-trim data-line-numbers style="max-height:none">
                     $ datalad clone ///openneuro/ds000001
@@ -1256,17 +1260,49 @@
 
 </section>
 
+<section>
+
+    <h2>Summary of achievements</h2>
+    <p>This is what you can do now!
+    </p>
+    <ol>
+        <li class="fragment fade-in">
+            Setup `requirements.txt` file that specifies package requirements ✅
+        </li>
+        <li class="fragment fade-in">
+            Specify and set up a virtual environment to install requirements ✅
+        </li>
+        <li class="fragment fade-in">
+            Share code, installation, and running instructions via GitHub ✅
+        </li>
+        <li class="fragment fade-in">
+            Transform your code into a Jupyter notebook ✅
+        </li>
+        <li class="fragment fade-in">
+            Set up your code repository to run in the cloud with Binder ✅
+        </li>
+        <li class="fragment fade-in">
+            Understand how containers can play a role in this context ✅
+        </li>
+        <li class="fragment fade-in">
+            Understand the benefits of data management with DataLad ✅
+        </li>
+    </ol>
+    
+</section>
+
 
 <section>
     <h2>Other resources for reproducible workflows</h2>
 
     <ul>
-        <li><a href="">BIDS apps</a></li>
+        <li><a href="https://bids-apps.neuroimaging.io/">BIDS apps</a></li>
+        <li><a href="https://brainlife.io/">brainlife.io</a></li>
         <li><a href="https://cookiecutter.readthedocs.io/en/1.7.2/">Cookie Cutter project templates</a></li>
-        <li><a href="">Interactive data applications with Dash and Plotly</a></li>
-        <li><a href="">nipype, fmriprep, dmriprep</a></li>
-        <li><a href="">Release DOIs with Zenodo</a></li>
-
+        <li>Interactive data applications with <a href="https://plotly.com/dash/">Dash and Plotly</a> (<a href="https://rt-me-fmri.herokuapp.com/">example</a>)</li>
+        <li>Matlab+SPM12 in an Octave kernel on Binder (<a href="https://github.com/jsheunis/spm12-octave-jupyter/">example</a>)</li>
+        <li>Pilelining tools: <a href="https://nipype.readthedocs.io/en/latest/">nipype</a>, <a href="https://fmriprep.org/en/stable/">fmriprep</a>, <a href="https://www.nipreps.org/dmriprep/">dmriprep</a></li>
+        <li><a href="https://zenodo.org/">Release DOIs with Zenodo</a></li>
     </ul>
 
 </section>
@@ -1275,15 +1311,14 @@
     <h2>Acknowledgements / Sources</h2>
 
     <ul>
+        <li><a href="https://github.com/datalad-handbook/course">Adina Wagner's DataLad courses and slides</a></li>
         <li><a href="https://the-turing-way.netlify.app/reproducible-research/renv/renv-containers.html">The Turing Way</a></li>
         <li><a href="https://opendreamkit.org/2017/11/02/use-case-publishing-reproducible-notebooks/">Juliette Taka, Logilab and the OpenDreamKit project</a></li>
-        <li><a href="https://hackmd.io/@jVeyrAXKRpWC3e6Q9Evo6g/binder-osip2019#/">Tim Head's Binder Workshop</a></li>
-        <li><a href="">Gifer</a></li>
-        <li><a href="">Data source</a></li>
         <li><a href="https://zenodo.org/record/3332808#.YMX8f5MzZH0">Scriberia</a></li>
-        <li><a href="">Adina Wagner's DataLad slides</a></li>
-
-
+        <li><a href="https://hackmd.io/@jVeyrAXKRpWC3e6Q9Evo6g/binder-osip2019#/">Tim Head's Binder Workshop</a></li>
+        <li><a href="https://github.com/rainsworth/osip2019-containerisation-workshop">Rachael Ainsworth's tutorial on Docker and Singularity</a></li>
+        <li><a href="https://github.com/MICA-MNI/micaopen">Multimodal Imaging and Conenctome Analysis Lab at the Montreal Neurological Institute</a></li>
+        <li><a href="https://gifer.com/en">Gifer</a></li>
     </ul>
 </section>
 
