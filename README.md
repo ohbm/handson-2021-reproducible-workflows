@@ -1,5 +1,5 @@
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ohbm/handson-2021-reproducible-workflows/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ohbm/handson-2021-reproducible-workflows/conda-env)
 
 Wellcome to OHBM 2021 reproducible workflows session!
 
