@@ -511,6 +511,13 @@
   
     </section>
 
+    <section>
+        <h2>Step 1: share data and code</h2>
+        "Galaxy brain" update:
+        <br><br>
+        <img src="pics/handson_galaxy_brain1.jpeg">
+    </section>
+
 </section>
 
 
@@ -606,6 +613,7 @@
                 </td>
                 <td>
                     <img src="pics/handson_python_environment.png" width="600">
+                    <imgcredit>XKCD</imgcredit>
                 </td>
             </tr>
         </table>
@@ -717,12 +725,20 @@
 
     <section>
         <h2>Step 2: software environment and requirements</h2>
+        "Galaxy brain" update:
+        <br><br>
+        <img src="pics/handson_galaxy_brain2.jpeg">
+    </section>
+
+    <section>
+        <h2>Step 2: software environment and requirements</h2>
 
         Well done!!
 
         <br><br>
 
         <iframe src="https://gifer.com/embed/5RK" width=600 height=400 frameBorder="0" allowFullScreen></iframe>
+        <imgcredit>Gifer.com</imgcredit>
         
     </section>
 
@@ -735,12 +751,12 @@
 </section>
 
 
-<!-- Step 3: containers everywhere -->
+<!-- Step 3: cloudy containers -->
 
 <section>
 
     <section>
-        <h2>Step 3: containers everywhere</h2>
+        <h2>Step 3: cloudy containers</h2>
 
         So you decide to chill out now that everything should be working, right? Unfortunately,
         our feeling of accomplishment is short-lived, because Professor Important
@@ -753,7 +769,7 @@
     </section>
 
     <section>
-        <h2>Step 3: containers everywhere</h2>
+        <h2>Step 3: cloudy containers</h2>
 
         And then you realise... many things. At the same time:
 
@@ -768,14 +784,507 @@
     </section>
 
     <section>
-        <h2>Step 3: containers everywhere</h2>
+        <h2>Step 3: cloudy containers</h2>
 
         <img src="pics/handson_itworksonmymachine.jpeg" width="600">
+        <imgcredit>Reddit</imgcredit>
 
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        <h3>Introducing containers</h3>
+        <ul>
+            <li>As we've seen, sharing code and data and even the virtual environment setup may not be enough for reproducibility</li>
+            <li>Also, even for moderately complex projects, the size of the software dependency stack can be </li>
+            <li>An alternative is to take a snapshot of the whole computational environment, including operating system and all software dependencies, to allow reproducibility</li>
+            <li>Useful resources:</li>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=EnJ7qX9fkcU">What is a container? (video)</a></li>
+                <li><a href="https://www.docker.com/">Docker (software for working with containers)</a></li>
+                <li><a href="https://sylabs.io/guides/2.6/user-guide/introduction.html#">Singularity (software for working with containers)</a></li>
+                <li><a href="https://github.com/rainsworth/osip2019-containerisation-workshop">Accessible tutorial on using Docker and Singularity</a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        <h3>Introducing containers</h3>
+        <img src="pics/handson_vmgrid.png" width="900">
+        <imgcredit>Rachael Ainsworth</imgcredit>
+        <br>
+        But we don't want to have to explain how to install <em>yet another</em> tool.
+        Ideally, we can run everything in the cloud...
+        
+
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        <h3>Introducing Binder</h3>
+
+        <img src="pics/handson_docker_binder.jpeg" height="650">
+        <imgcredit>Scriberia</imgcredit>
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        <div style="text-align: justify;">
+            💻 In this hans-on session, we will follow the steps to make our data, code, and computational environment accessible in Binder:
+        </div>
+        <br>
+
+        <ol>
+            <li>Code and data in a public GitHub repository ✅</li>
+            <li>Specify environment configuration:</li>
+            <ul>
+                <li><code>environment.yml</code> for conda ❓</li>
+                <li><code>requirements.txt</code> for Python/PIP ✅</li>
+                <li><code>apt.txt</code> for Unix-based software ❓</li>
+            </ul>
+            <li>Add any extra tasks to <code>postBuild</code> ❓</li>
+            <li><a href="https://mybinder.org/">Generate a link to a Binder environment ❓</a></li>
+            <li>Add the Binder link to your repo's README ❓</li>
+        </ol>
+        
+
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        <ul>
+            <li>We already have a <code>requirements.txt</code> file with most packages</li>
+            <li>💻 Remember the LibGL issue? We can let Binder install that with <code>apt.txt</code>:</li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    libgl1-mesa-dev
+                    xvfb
+                </code>
+            </pre>
+            <li>💻 And remember that we have separate instructions for installing BrainStat?
+                We can add those lines of code to <code>postBuild</code>:
+            </li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    #!/bin/bash
+                    git clone https://github.com/MICA-MNI/BrainStat.git
+                    cd BrainStat
+                    python3 setup.py build
+                    python3 setup.py install
+                    cd ..
+                    export DISPLAY=:99.0
+                    which Xvfb
+                    Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+                    sleep 3
+                    exec "$@"
+                </code>
+            </pre>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        Status update:
+        <br><br>
+
+        <ol>
+            <li>Code and data in a public GitHub repository ✅</li>
+            <li>Specify environment configuration ✅</li>
+            <ul>
+                <li><em><small>NOTE: using <code>environment.yml</code> instead of <code>requirements.txt</code> to specify the configuration is also possible.
+                    It all depends on which packages are available via which distribution service. For an example of setting up our repository using
+                    <code>environment.yml</code>, see the <a href="">conda-env branch</a> of the repo. For a variety of options for configuration files
+                    see the <a href="https://mybinder.readthedocs.io/en/latest/using/config_files.html">Binder documentation</a>.</small></em>
+                </li>
+            </ul>
+            <li>Add any extra tasks to <code>postBuild</code> ✅</li>
+            <li><a href="https://mybinder.org/">Generate a link to a Binder environment ❓</a></li>
+            <li>Add the Binder link to your repo's README ❓</li>
+        </ol>
+        <br><br>
+        💻 Now we still have to "Binderize" everything!
+        
+
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        💻 <a href="https://mybinder.org/">mybinder.org</a>
+        <br>
+        <img src="pics/handson_binderize.png" height="750">
+
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        Status update:
+        <br><br>
+
+        <ol>
+            <li>Code and data in a public GitHub repository ✅</li>
+            <li>Specify environment configuration ✅</li>
+            <li>Add any extra tasks to <code>postBuild</code> ✅</li>
+            <li><a href="https://mybinder.org/">Generate a link to a Binder environment ✅</a></li>
+            <li>💻 Add the Binder link to your repo's README</li>
+            <ul>
+                <li>While the Binder is building, add the Binder image and link to your README</li>
+                <li>Once the Binder build is successful, it should open a Jupyter environment</li>
+                <li>Now we have a complete environment for reproducing your results IN THE CLOUD!!!</li>
+            </ul>
+        </ol>
+
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        We can't hold our excitement, so we send a quick email to notify the colleague:
+        <br><br>
+        <img src="pics/handson_email7.png">
+    </section>
+
+    <section>
+        <h2>Step 3: cloudy containers</h2>
+        "Galaxy brain" update:
+        <br><br>
+        <img src="pics/handson_galaxy_brain3.jpeg">
     </section>
 
 
 
+</section>
+
+<section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        So, you're busy (rightfully) thinking that you have done a great job of making your work
+        more reproducible, but then ... it looks like we spoke too soon. Our VIP friend has another request...
+        <br><br>
+        <img src="pics/handson_email8.png">
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        
+        So firstly, it works for them!!! (Always try and celebrate the wins in academia, however big or small.)
+
+        <br><br>
+
+        Secondly, let's take a deeper look into this <strong>notebook</strong> thing. And what's with <strong>Jupiter</strong>?
+        <br><br>
+        <img src="pics/handson_jupiter.png" width="600">
+        <imgcredit>NASA SpacePlace</imgcredit>
+
+        
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+
+        <img src="pics/jupyter_logo.png" height="100">
+        <div style="text-align: justify;">
+            <em>
+                "The <a href="https://jupyter.org/">Jupyter Notebook</a> is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more."
+            </em>
+        </div>
+        <img src="pics/handson_jupyterpreview.png" width="600">
+        <imgcredit>Jupyter.org</imgcredit>
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+
+        <h3>Jupyter notebooks:</h3>
+        <ul>
+            <li>Can be installed (amongst other methods) with <code>conda</code> and <code>pip</code></li>
+            <pre>
+                <code data-trim data-line-numbers>
+                    conda install -c conda-forge notebook
+                    pip install notebook
+                </code>
+            </pre>
+            <li>Can work with kernels for Python, R, Octave, Julia and many more!</li>
+            <li>Form part of the bigger Jupyter ecosystem (including <a href="https://jupyterlab.readthedocs.io/en/latest/">JupyterLab</a> and <a href="https://jupyterhub.readthedocs.io/en/stable/">JupyterHub</a>)</li>
+            <li>If on a public repository, can be viewed statically with <a href="https://nbviewer.jupyter.org/">nbviewer</a></li>
+            <li><strong>If on Binder, can be interacted with and edited in the cloud</strong></li>
+        </ul>
+
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        <div style="text-align: justify;">
+            💻 To make our work more accessible and intuitive, we will create a Jupyter Notebook translated from 
+        the current Python script, by dividing it into code and Markdown cells, and running these to
+        generate the visualisation outputs:
+        </div>
+        <br>
+
+        <ol>
+            <li>Open the Binder link</li>
+            <li>Click on <em>New > Python 3</em></li>
+            <li>Use the editing funcitons to add/edit/move cells</li>
+            <ul>
+                <li>Use Markdown cells for narrative content (as in the README)</li>
+                <li>Use code cells for Python code</li>
+            </ul>
+            <li>Have a look at <a href="">this static example</a> for guidance</li>
+        </ol>
+        
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        <h3>Show and tell!</h3>
+        <img src="pics/handson_bindershow.png" width="600">
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        This is what you have achieved!
+        <br>
+        <img src="pics/handson_binder_comic.png" width="1000">
+    </section>
+
+    <section>
+        <h2>STEP 4: Interplanetary sci-comm</h2>
+        "Galaxy brain" update:
+        <br><br>
+        <img src="pics/handson_galaxy_brain4.jpeg">
+    </section>
+
+</section>
+
+<section>
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <div style="text-align: justify;">
+            In many cases we will work with large datasets and multiple analysis pipelines will
+            form part of the full research pipeline,
+            each with their own list of software and environment requirements.
+            Managing the full reproducibility of such workflows
+            can be challenging (or impossible) without the right tools that allow:
+            <br>
+        </div>
+        <ol>
+            <li>Data version control</li>
+            <li>Provenance capture</li>
+        </ol>
+
+        <br><br>
+
+        <h2>Introducing <img src="pics/datalad_logo_wide.svg"></h2>
+
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+
+        <h2> <img src="pics/datalad_logo_wide.svg"> in brief</h2>
+        <ul>
+            <li>A command-line tool with Python API</li>
+            <li>Build on top of <a href="https://git-scm.com/" target="_blank">Git</a>
+                and <a href="https://git-annex.branchable.com/" target="_blank">Git-annex</a></li>
+            <dt><li>Allows...</li></dt>
+            <dd>... version-controlling arbitrarily large content,</dd>
+            <dd>... easily sharing and obtaining data (note: no data hosting!),</dd>
+            <dd>... (computationally) reproducible data analysis,
+            <dd>... and <i>much</i> more </dd>
+            <li>Completely domain-agnostic</li>
+            <li>Available for all major operating systems (Linux, macOS/OSX, Windows):
+                <a href="http://handbook.datalad.org/en/latest/intro/installation.html">installation instructions</a>
+            </li>
+            <li>Detailed documentation: <a href="http://handbook.datalad.org/en/latest/index.html">DataLad Handbook</a></li>
+                <br>
+        </ul>
+
+    </section>
+
+    <section>
+
+        <h2>STEP 5: Reproducible data management</h2>
+
+        DataLad version control helps you get...
+
+        <table>
+            <tr>
+                <td>From this: <img src="pics/finaldoc_comic.gif" height="700"></td>
+                <td>To this: <img src="pics/gitflow.png" height="700"></td>
+            </tr>
+        </table>
+        
+    
+        <imgcredit>www.phdcomics.com; www.linode.com</imgcredit>
+        
+    </section>
+
+    <section>
+
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - LOCAL VERSION CONTROL</h3>
+        <dl>
+            <dt> <code>datalad create</code> creates an empty dataset.</dt> <dd>Configurations (<b>-c yoda</b>, <b>-c text2git</b>) are useful.</dd>
+            <br>
+            <dt>A dataset has a <i>history</i> to track files and their modifications. </dt><dd >Explore it with Git (<b>git log</b>) or external tools (e.g., <b>tig</b>).</dd>
+            <br>
+            <dt><code>datalad save</code> records the dataset or file state to the history. </dt><dd >Concise <b>commit messages</b> should summarize the change for future you and others.</dd>
+            <br>
+            <dt><code>datalad status</code> reports the current state of the dataset.</dt> <dd">A clean dataset status is good practice.</dd>
+          </dl>
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Nesting and Consumption</h3>
+        <ol>
+            <li>A DataLad dataset is a folder/directory with files</li>
+            <li>Subdirectories and their content can be part of the <strong>superdataset</strong>,
+                or they can be DataLad datasets themselves (<strong>nested subdatasets</strong>)
+            </li>
+        </ol>
+        <br><br>
+
+        <img src="pics/virtual_dstree_dl101.svg" height="500">
+
+
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Nesting and Consumption</h3>
+        <br>
+        <ul>
+            <dt><code>datalad clone</code> installs a dataset.</dt><dd> It can be installed “on its own”:
+            Specify the source (url, path, ...) of the dataset, and an optional <b>path</b> for it to be installed to.</dd>
+            <br>
+            <dt>Datasets can be installed as subdatasets within an existing dataset. </dt> <dd> The <b>--dataset/-d</b> option needs a path to the root of the superdataset.</dd>
+            <br>
+            <dt>Only small files and metadata about file availability are present locally after an install. </dt><dd>To retrieve actual file content of larger files, <code>datalad get </code> downloads large file content on demand.</dd>
+      
+          </ul>
+
+
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Nesting and Consumption</h3>
+        <br>
+        <ul>
+            <dt>Content can be dropped to save disk space with <code>datalad drop.</code><dd>Do this only if content can be easily reobtained.</dd>
+            <br>
+            <dt>Datasets preserve their history.</dt> <dd>In nested datasets, the superdataset records only the <i>version state</i> of the subdataset.</dd>
+      
+          </ul>
+
+
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Nesting and Consumption</h3>
+        
+        <ul>
+            <li>A modular structure makes individual components (with their respective provenance) reusable.</li>
+            <li>Nesting can flexibly link all components and allows recursive operations across dataset boundaries</li>
+            <li>Read all about this in the <a href="http://handbook.datalad.org/en/latest/basics/101-127-yoda.html" target="_blank">chapter on YODA principles</a></li>
+        </ul>
+        <img src="pics/linkage_subds.png" height="400">
+
+
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Computational reproducibility</h3>
+
+        <ul>
+            <li>Code may produce different results or fail with different software</li>
+            <li>Datasets can store & share software environments and execute code inside of the software container</li>
+            <li>DataLad extension: <code>datalad-container</code></li>
+        </ul>
+    
+        <p><code>datalad-containers run</code></p>
+        <img src="pics/containers-run.svg" height="400">
+    </section>
+
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        <h3>DataLad SUMMARY - Getting started</h3>
+        
+
+        <dl>
+            <dt>Read <a href="https://handbook.datalad.org"> the DataLad handbook</a></dt>
+            <dd>An interactive, hands-on crash-course (free and open source)</dd>
+            <dt>Check out or used public DataLad datasets, e.g., from OpenNeuro</dt>
+            <dd>
+                <pre><code data-trim data-line-numbers style="max-height:none">
+                    $ datalad clone ///openneuro/ds000001
+                    [INFO   ] Cloning http://datasets.datalad.org/openneuro/ds000001 [1 other candidates] into '/tmp/ds000001'
+                    [INFO   ] access to 1 dataset sibling s3-PRIVATE not auto-enabled, enable with:
+                    | 		datalad siblings -d "/tmp/ds000001" enable -s s3-PRIVATE
+                    install(ok): /tmp/ds000001 (dataset)
+                    
+                    $ cd ds000001
+                    $ ls sub-01/*
+                    sub-01/anat:
+                    sub-01_inplaneT2.nii.gz  sub-01_T1w.nii.gz
+                    
+                    sub-01/func:
+                    sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz
+                    sub-01_task-balloonanalogrisktask_run-01_events.tsv
+                    sub-01_task-balloonanalogrisktask_run-02_bold.nii.gz
+                    sub-01_task-balloonanalogrisktask_run-02_events.tsv
+                    sub-01_task-balloonanalogrisktask_run-03_bold.nii.gz
+                    sub-01_task-balloonanalogrisktask_run-03_events.tsv
+                 </code></pre>
+            </dd>
+            <dt>💻 Walk through the <a href="https://github.com/datalad-handbook/datalad-tutorial-binder">DataLad tutorial on Binder</a></dt>
+        </dl>
+    </section>
+
+    <section>
+        <h2>STEP 5: Reproducible data management</h2>
+        "Galaxy brain" update:
+        <br><br>
+        <img src="pics/handson_galaxy_brain.jpeg">
+    </section>
+
+    
+
+</section>
+
+
+<section>
+    <h2>Other resources for reproducible workflows</h2>
+
+    <ul>
+        <li><a href="">BIDS apps</a></li>
+        <li><a href="https://cookiecutter.readthedocs.io/en/1.7.2/">Cookie Cutter project templates</a></li>
+        <li><a href="">Interactive data applications with Dash and Plotly</a></li>
+        <li><a href="">nipype, fmriprep, dmriprep</a></li>
+        <li><a href="">Release DOIs with Zenodo</a></li>
+
+    </ul>
+
+</section>
+
+<section>
+    <h2>Acknowledgements / Sources</h2>
+
+    <ul>
+        <li><a href="https://the-turing-way.netlify.app/reproducible-research/renv/renv-containers.html">The Turing Way</a></li>
+        <li><a href="https://opendreamkit.org/2017/11/02/use-case-publishing-reproducible-notebooks/">Juliette Taka, Logilab and the OpenDreamKit project</a></li>
+        <li><a href="https://hackmd.io/@jVeyrAXKRpWC3e6Q9Evo6g/binder-osip2019#/">Tim Head's Binder Workshop</a></li>
+        <li><a href="">Gifer</a></li>
+        <li><a href="">Data source</a></li>
+        <li><a href="https://zenodo.org/record/3332808#.YMX8f5MzZH0">Scriberia</a></li>
+        <li><a href="">Adina Wagner's DataLad slides</a></li>
+
+
+    </ul>
 </section>
 
 
