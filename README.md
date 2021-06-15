@@ -1,6 +1,6 @@
 # OHBM Hackathon 2021 TrainTrack Session - Reproducible Workflows
 
-Welcome to the code and content repoitory of the hands-on session ***"I’d like to reproduce your results…" and other tales in Reproducible Workflows***, part of the TrainTrack of the [OHBM BrainHack 2021](https://ohbm.github.io/hackathon2021/traintrack/)
+Welcome to the code and content repository of the hands-on session ***"I’d like to reproduce your results…" and other tales in Reproducible Workflows***, part of the TrainTrack of the [OHBM BrainHack 2021](https://ohbm.github.io/hackathon2021/traintrack/)
 
 ---
 ### Presenters:
