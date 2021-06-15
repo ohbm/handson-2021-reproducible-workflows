@@ -9,14 +9,20 @@ from nilearn.plotting.surf_plotting import load_surf_data
 from brainstat.stats.terms import FixedEffect
 from brainstat.stats.SLM import SLM
 import myvis
+import zipfile
 
+# 0. get data demographics through pandas
 path_to_script = os.path.dirname(os.path.abspath(__file__))
 datadir = os.path.join(os.path.dirname(path_to_script), 'data')
 
-# 0. get data demographics through pandas
+datadir = '../data'
+
+zipped_data = os.path.join(datadir, 'thickness.zip')
+with zipfile.ZipFile(zipped_data, 'r') as zip_ref:
+    zip_ref.extractall(datadir)
+
 dfname = os.path.join(datadir, 'thickness.csv')
 df = pd.read_csv(dfname)
-
 idx = np.array(df["ID2"])
 age = np.array(df["AGE"])
 
