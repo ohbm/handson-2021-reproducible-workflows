@@ -11,10 +11,6 @@ from brainstat.stats.SLM import SLM
 import myvis
 import zipfile
 
-# 0. get data demographics through pandas
-path_to_script = os.path.dirname(os.path.abspath(__file__))
-datadir = os.path.join(os.path.dirname(path_to_script), 'data')
-
 datadir = '../data'
 
 zipped_data = os.path.join(datadir, 'thickness.zip')
